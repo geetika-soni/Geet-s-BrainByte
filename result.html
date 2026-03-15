@@ -15,11 +15,27 @@
 
 <p>Your answers have been recorded.</p>
 
+<h2>Your Result</h2>
+
+<p>Correct Answers: <span id="correct"></span></p>
+<p>Wrong Answers: <span id="wrong"></span></p>
+<p>Total Questions: <span id="total"></span></p>
+
+<br>
+
 <a href="index.html">
 <button>Go to Home</button>
 </a>
 
 </div>
+
+<script>
+
+document.getElementById("correct").innerText = localStorage.getItem("correct");
+document.getElementById("wrong").innerText = localStorage.getItem("wrong");
+document.getElementById("total").innerText = localStorage.getItem("total");
+
+</script>
 
 </body>
 </html>
