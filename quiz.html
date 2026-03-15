@@ -11,25 +11,53 @@
 
 <h2>1. What does HTML stand for?</h2>
 
-<input type="radio" name="q1"> Hyper Text Markup Language <br>
-<input type="radio" name="q1"> High Text Machine Language <br>
-<input type="radio" name="q1"> Hyper Tool Markup Language <br>
+<input type="radio" name="q1" value="correct"> Hyper Text Markup Language <br>
+<input type="radio" name="q1" value="wrong"> High Text Machine Language <br>
+<input type="radio" name="q1" value="wrong"> Hyper Tool Markup Language <br>
 
 <br><br>
 
 <h2>2. Which tag creates a hyperlink?</h2>
 
-<input type="radio" name="q2"> &lt;p&gt; <br>
-<input type="radio" name="q2"> &lt;a&gt; <br>
-<input type="radio" name="q2"> &lt;img&gt; <br>
+<input type="radio" name="q2" value="wrong"> &lt;p&gt; <br>
+<input type="radio" name="q2" value="correct"> &lt;a&gt; <br>
+<input type="radio" name="q2" value="wrong"> &lt;img&gt; <br>
 
 <br><br>
 
-<a href="result.html">
-<button>Submit Quiz</button>
-</a>
+<button onclick="checkResult()">Submit Quiz</button>
 
 </div>
+
+<script>
+
+function checkResult(){
+
+let correct = 0;
+let total = 2;
+
+let q1 = document.querySelector('input[name="q1"]:checked');
+let q2 = document.querySelector('input[name="q2"]:checked');
+
+if(q1 && q1.value === "correct"){
+correct++;
+}
+
+if(q2 && q2.value === "correct"){
+correct++;
+}
+
+let wrong = total - correct;
+
+localStorage.setItem("correct", correct);
+localStorage.setItem("wrong", wrong);
+localStorage.setItem("total", total);
+
+window.location.href = "result.html";
+
+}
+
+</script>
 
 </body>
 </html>
